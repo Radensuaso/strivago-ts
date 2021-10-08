@@ -28,3 +28,11 @@ export interface Accommodation {
 export interface AccommodationDocument extends Document, Accommodation {}
 
 export interface AccommodationModelType extends Model<AccommodationDocument> {}
+
+declare global {
+  namespace Express {
+    interface Request {
+      user: UserModel;
+    }
+  }
+}
