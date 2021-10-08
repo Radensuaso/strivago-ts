@@ -34,8 +34,8 @@ userSchema.pre("save", async function (next) {
 });
 
 // Updating existent
-userSchema.pre("findOneAndUpdate", async function () {
-  const update: any = this.getUpdate();
+userSchema.pre("findOneAndUpdate", async function (this) {
+  const update: any = this.getUpdate()!;
   const { password: plainPwd } = update;
 
   if (plainPwd) {

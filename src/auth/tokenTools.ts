@@ -1,5 +1,5 @@
-import JWT, { JwtPayload } from "jsonwebtoken";
-import { UserDocument } from "../typings";
+import JWT from "jsonwebtoken";
+import { DecodedToken, UserDocument } from "../typings";
 
 process.env.TS_NODE_DEV && require("dotenv").config();
 if (!process.env.JWT_SECRET) {
@@ -32,12 +32,12 @@ export const generateJWTToken = async (user: UserDocument) => {
 //=================== Verify JWT Token
 
 export const verifyJWTToken = async (token: string) => {
-  return new Promise((resolve, reject) =>
+  return new Promise<DecodedToken>((resolve, reject) =>
     JWT.verify(token, JWTSecret, (err, decodedToken) => {
       if (err) {
         reject(err);
       } else {
-        resolve(decodedToken);
+        resolve(decodedToken as DecodedToken);
       }
     })
   );

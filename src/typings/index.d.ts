@@ -36,3 +36,7 @@ declare global {
     }
   }
 }
+
+export interface DecodedToken {
+  _id: string;
+}
