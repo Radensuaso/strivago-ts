@@ -1,10 +1,10 @@
 import express from "express";
 import createHttpError from "http-errors";
-import UserModel from "../../../schemas/User.js";
-import AccommodationModel from "../../../schemas/Accommodation.js";
-import { hostMiddleware } from "../../auth/hostMiddleware.js";
-import { tokenMiddleware } from "../../auth/tokenMiddleware.js";
-import { generateJWTToken } from "../../auth/tokenTools.js";
+import UserModel from "../../schemas/User";
+import AccommodationModel from "../../schemas/Accommodation";
+import { hostMiddleware } from "../../auth/hostMiddleware";
+import { tokenMiddleware } from "../../auth/tokenMiddleware";
+import { generateJWTToken } from "../../auth/tokenTools";
 
 const usersRouter = express.Router();
 

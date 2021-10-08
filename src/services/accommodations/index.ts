@@ -1,9 +1,8 @@
 import express from "express";
-import AccommodationModel from "../../../schemas/Accommodation.js";
-import { tokenMiddleware } from "../../auth/tokenMiddleware.js";
-import { hostMiddleware } from "../../auth/hostMiddleware.js";
+import AccommodationModel from "../../schemas/Accommodation";
+import { tokenMiddleware } from "../../auth/tokenMiddleware";
+import { hostMiddleware } from "../../auth/hostMiddleware";
 import createHttpError from "http-errors";
-import usersRouter from "../users/index.js";
 
 const accommodationsRouter = express.Router();
 
