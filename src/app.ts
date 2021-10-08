@@ -7,9 +7,9 @@ import {
   notFoundHandler,
   conflictHandler,
   genericServerErrorHandler,
-} from "./errorHandlers.js";
-import usersRouter from "./services/users/index.js";
-import accommodationsRouter from "./services/accommodations/index.js";
+} from "./errorHandlers";
+import usersRouter from "./services/users";
+import accommodationsRouter from "./services/accommodations";
 
 const app = express(); //our server function initialized with express()
 
