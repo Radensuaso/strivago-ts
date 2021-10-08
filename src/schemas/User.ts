@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
+import { UserDocument } from "src/typings";
 
 const { Schema, model } = mongoose;
 
-const userSchema = new Schema(
+const userSchema = new Schema<UserDocument>(
   {
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
@@ -34,7 +35,7 @@ userSchema.pre("save", async function (next) {
 
 // Updating existent
 userSchema.pre("findOneAndUpdate", async function () {
-  const update = this.getUpdate();
+  const update: any = this.getUpdate();
   const { password: plainPwd } = update;
 
   if (plainPwd) {
@@ -45,7 +46,7 @@ userSchema.pre("findOneAndUpdate", async function () {
 
 //Showing json without passwords
 userSchema.methods.toJSON = function () {
-  const userObject = this.toObject();
+  const userObject: any = this.toObject();
   delete userObject.password;
   delete userObject.__v;
   return userObject;

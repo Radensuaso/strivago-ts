@@ -1,3 +1,5 @@
+import { Document, Model } from "mongoose";
+
 export interface User {
   name: string;
   email: string;
@@ -6,6 +8,8 @@ export interface User {
   googleId: string;
 }
 
+export interface UserDocument extends Document, User {}
+
 export interface Accommodation {
   name: string;
   host: string;
@@ -13,3 +17,5 @@ export interface Accommodation {
   maxGuests: number;
   city: string;
 }
+
+export interface AccommodationDocument extends Document, Accommodation {}
